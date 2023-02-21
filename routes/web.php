@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth']], function () {
+
     Route::get('/dashboard', function () {
         return view('page.dashboard');
     });
@@ -34,8 +35,9 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/formdatasiswapkl', function () {
     //     return view('page.tabelsiswa');
     // });
-
-    Route::get('/tambahsiswapkl', [SiswaController::class, 'create']);
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/tambahsiswapkl', [SiswaController::class, 'create']);
+    });
     Route::get('/html', [SuratController::class, 'html']);
 
     Route::post('/logout', [AuthController::class, 'logout']);

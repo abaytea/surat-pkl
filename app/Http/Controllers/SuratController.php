@@ -28,10 +28,9 @@ class SuratController extends Controller
      */
     public function create()
     {
-        // $siswa = DB::table('users')
-        // ->join('siswas', 'users.id', '=', 'siswas.user_id')
-        // ->get();
-        $siswa = User::all();
+        $siswa = DB::table('users')
+        ->join('siswas', 'users.id', '=', 'siswas.user_id')
+        ->get();
         return view('page.tambahsurat', ['siswa' => $siswa]);
 
     }

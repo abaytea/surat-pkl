@@ -18,8 +18,12 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswa = User::where('id', '=', Auth()->user()->id)->get();
-        // $siswa = DB::table('users')->where('nama', '=','admin')->get();
+        $siswa = DB::table('siswas')
+        ->join('users', 'user_id', '=','users.id')
+        ->join('jurusans', 'jurusan_id', '=','jurusans.id')
+        ->join('kelas', 'kelas_id', '=','kelas.id')
+        ->orderBy('nama', 'asc')
+        ->paginate(5);
         return view('page.tabelsiswa', ['siswa'=>$siswa]);
     }
 

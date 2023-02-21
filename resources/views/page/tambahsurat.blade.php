@@ -71,8 +71,9 @@
                                             <div class="form-group col-md-6">
                                                 <label for="multi-select2">Nama Siswa</label>
                                                 <select name="nama_siswa[]" class="form-control select2-multi"
-                                                    id="multi-select2">
+                                                    id="multi-select2" required>
                                                     <optgroup label="Daftar Siswa">
+                                                        <option disabled selected value=""></option>
                                                         @foreach ( $siswa as $data)
                                                         <option value="{{$data->id}}">{{$data->nama}}</option>
                                                         @endforeach

@@ -23,6 +23,7 @@
                         <span class="ml-lg-2">Pembuatan Surat PKL</span>
                     </a>
                 </li>
+                @role('admin')
                 <li class="nav-item">
                     <a class="nav-link" href={{ url('/formtabelsurat') }}>
                         <span class="ml-lg-2">Surat</span>
@@ -38,6 +39,7 @@
                         <span class="ml-lg-2">Tambah Siswa PKL</span>
                     </a>
                 </li>
+                @endrole
             </ul>
         </div>
         <form class="form-inline ml-md-auto d-none d-lg-flex text-muted">
