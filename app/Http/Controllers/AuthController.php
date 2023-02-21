@@ -38,10 +38,15 @@ class AuthController extends Controller
                 "nama" => $request->nama,
                 "username"=> $request->username,
                 "password"=> Hash::make ($request->password),
-             ]);
+             ])->assignRole('siswa')->siswa()->create([
+                'nisn' => $request->nisn,
+                'no_hp' => $request->no_hp,
+                'kelas_id' => $request->kelas,
+                'jurusan_id' => $request->jurusan
+            ]);
             return redirect()->to('/formdatasiswapkl');
-        return back()->with('loginError', 'Username atau Password Salah!');
-            }
+            return back()->with('loginError', 'Username atau Password Salah!');
+    }
     public function profile(){
         // dd(auth()->user()->getRoleNames());
         if (auth()->user()->getRoleNames()[0] == "admin") {

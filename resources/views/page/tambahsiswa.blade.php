@@ -71,11 +71,9 @@
                                                 <label for="simple-select2">Jurusan </label>
                                                 <select name="kelas" class="form-control select2" id="simple-select2">
                                                     <optgroup label="Pilih Kelas">
-                                                        <option value="TKJ_A">TKJ</option>
-                                                        <option value="TKJ_B">TSM</option>
-                                                        <option value="TKJ_C">TKR</option>
-                                                        <option value="TSM_A">AP</option>
-                                                        <option value="TSM_A">AK</option>
+                                                        @foreach ($jurusan as $data)
+                                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                                        @endforeach
                                                     </optgroup>
                                                 </select>
                                             </div>
@@ -83,10 +81,9 @@
                                                 <label for="simple-select2">Kelas </label>
                                                 <select name="kelas" class="form-control select2" id="simple-select2">
                                                     <optgroup label="Pilih Kelas">
-                                                        <option value="TKJ_A">A</option>
-                                                        <option value="TKJ_B">B</option>
-                                                        <option value="TKJ_C">C</option>
-                                                        <option value="TSM_A">D</option>
+                                                        @foreach ($kelas as $data)
+                                                        <option value="{{ $data->id }}">{{ $data->kelas }}</option>
+                                                        @endforeach
                                                     </optgroup>
                                                 </select>
                                             </div>

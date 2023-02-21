@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurusan;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +30,11 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        $jurusan = Jurusan::all('name', 'id');
+        $kelas = Kelas::all('kelas', 'id');
+
+        return view('page.tambahsiswa', ['jurusan'=>$jurusan, 'kelas'=>$kelas]);
+
     }
 
     /**

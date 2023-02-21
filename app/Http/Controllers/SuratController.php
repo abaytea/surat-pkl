@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Surat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class SuratController extends Controller
@@ -95,5 +96,12 @@ class SuratController extends Controller
     public function destroy(Surat $surat)
     {
         //
+    }
+
+    public function html()
+    {
+        $pdf = App::make('dompdf.wrapper');
+    $pdf->loadHTML('<h1>Test</h1>');
+    return $pdf->stream();
     }
 }

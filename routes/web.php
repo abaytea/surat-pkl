@@ -34,9 +34,10 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/formdatasiswapkl', function () {
     //     return view('page.tabelsiswa');
     // });
-    Route::get('/tambahsiswapkl', function () {
-        return view('page.tambahsiswa');
-    });
+
+    Route::get('/tambahsiswapkl', [SiswaController::class, 'create']);
+    Route::get('/html', [SuratController::class, 'html']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/formtambahsurat', [SuratController::class, 'store']);
     Route::post('/formtambahsiswa', [AuthController::class, 'store']);
