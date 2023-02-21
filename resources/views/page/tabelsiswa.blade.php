@@ -12,6 +12,10 @@
                     <tr>
                         <th>Nama</th>
                         <th>Username</th>
+                        <th>NISN</th>
+                        <th>No Hp</th>
+                        <th>Jurusan</th>
+                        <th>Kelas</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -21,6 +25,10 @@
                     <tr>
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->username }}</td>
+                        <td>{{ $data->nisn }}</td>
+                        <td>{{ $data->no_hp }}</td>
+                        <td>{{ $data->jurusan }}</td>
+                        <td>{{ $data->kelas }}</td>
                         <td><span class="badge badge-pill badge-success">Sudah</span></td>
                         <td><button type="button" class="btn mb-2 btn-secondary"><span
                                     class="fe fe-download fe-16"><span></button></td>

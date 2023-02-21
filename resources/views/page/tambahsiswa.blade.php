@@ -21,6 +21,26 @@
                                     <input type="text" name="nama" id="simpleinput" class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
+                                    <p class="mb-2"><strong>NISN</strong></p>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-10">
+                                            <div class="input-group">
+                                                <input type="text" name="username" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <p class="mb-2"><strong>No Hp</strong></p>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-10">
+                                            <div class="input-group">
+                                                <input type="text" name="username" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
                                     <p class="mb-2"><strong>User Name</strong></p>
                                     <div class="form-row">
                                         <div class="form-group col-md-10">
@@ -42,22 +62,31 @@
                                 </div>
                             </div>
 
-                            <!-- /.col -->
-                            <div class="col-md-6">
+                            <!-- /.col --><div class="col-md-6">
                                 <div class="card shadow mb-4">
                                     <div class="card-body">
+                                        <p class="mb-2"><strong>Data Siswa</strong></p>
                                         <div class="form-row">
+                                            <div class="form-group col-md-3">
+                                                <label for="simple-select2">Jurusan </label>
+                                                <select name="kelas" class="form-control select2" id="simple-select2">
+                                                    <optgroup label="Pilih Kelas">
+                                                        <option value="TKJ_A">TKJ</option>
+                                                        <option value="TKJ_B">TSM</option>
+                                                        <option value="TKJ_C">TKR</option>
+                                                        <option value="TSM_A">AP</option>
+                                                        <option value="TSM_A">AK</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
                                             <div class="form-group col-md-3">
                                                 <label for="simple-select2">Kelas </label>
                                                 <select name="kelas" class="form-control select2" id="simple-select2">
-                                                    <optgroup label="kelas">
-                                                        <option value="TKJ_A">TKJ_A</option>
-                                                        <option value="TKJ_B">TKJ_B</option>
-                                                        <option value="TKJ_C">TKJ_C</option>
-                                                        <option value="TSM_A">TSM_A</option>
-                                                        <option value="TSM_B">TSM_B</option>
-                                                        <option value="TKR_A">TKR_A</option>
-                                                        <option value="TKR_B">TKR_B</option>
+                                                    <optgroup label="Pilih Kelas">
+                                                        <option value="TKJ_A">A</option>
+                                                        <option value="TKJ_B">B</option>
+                                                        <option value="TKJ_C">C</option>
+                                                        <option value="TSM_A">D</option>
                                                     </optgroup>
                                                 </select>
                                             </div>
@@ -65,6 +94,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             <div class="text-center">&emsp;
                                 <button type="submite" class="btn mb-2 btn-outline-primary">
                                     <span class="fe fe-arrow-right fe-16 mr-2"></span>&ensp;Tambah</button>
@@ -75,4 +105,5 @@
             </div>
         </div>
     </div>
+</div>
     @endsection

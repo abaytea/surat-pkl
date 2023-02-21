@@ -44,20 +44,30 @@
                                     <div class="card-body">
                                         <p class="mb-2"><strong>Data Siswa</strong></p>
                                         <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="simple-select2">Kelas </label>
+                                            <div class="form-group col-md-2">
+                                                <label for="simple-select2">Jurusan </label>
                                                 <select name="kelas" class="form-control select2" id="simple-select2">
-                                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                        <option value="TKJ_A">TKJ_A</option>
-                                                        <option value="TKJ_B">TKJ_B</option>
-                                                        <option value="TKJ_C">TKJ_C</option>
-                                                        <option value="TSM_A">TSM_A</option>
-                                                        <option value="TSM_B">TSM_B</option>
-                                                        <option value="TKR_A">TKR_A</option>
-                                                        <option value="TKR_B">TKR_B</option>
+                                                    <optgroup label="Pilih Kelas">
+                                                        <option value="TKJ_A">TKJ</option>
+                                                        <option value="TKJ_B">TSM</option>
+                                                        <option value="TKJ_C">TKR</option>
+                                                        <option value="TSM_A">AP</option>
+                                                        <option value="TSM_A">AK</option>
                                                     </optgroup>
                                                 </select>
-                                            </div> <!-- form-group -->
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label for="simple-select2">Kelas </label>
+                                                <select name="kelas" class="form-control select2" id="simple-select2">
+                                                    <optgroup label="Pilih Kelas">
+                                                        <option value="TKJ_A">A</option>
+                                                        <option value="TKJ_B">B</option>
+                                                        <option value="TKJ_C">C</option>
+                                                        <option value="TSM_A">D</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                             <!-- form-group -->
                                             <div class="form-group col-md-6">
                                                 <label for="multi-select2">Nama Siswa</label>
                                                 <select name="nama_siswa[]" class="form-control select2-multi"
@@ -73,9 +83,10 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             <div class="text-center">
                                 <button type="submite" class="btn mb-2 btn-outline-primary"><span
-                                        class="fe fe-arrow-right fe-16 mr-2"></span>Primary</button>
+                                        class="fe fe-arrow-right fe-16 mr-2"></span>Simpan</button>
                             </div>
                         </div>
                     </form>

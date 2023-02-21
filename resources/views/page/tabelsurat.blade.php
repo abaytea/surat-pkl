@@ -17,6 +17,9 @@
                     <tr>
                         <th>Tujuan_Surat</th>
                         <th>Tanggal_Mulai</th>
+                        <th>Tanggal_Nama Siswa</th>
+                        <th>Tanggal_Jurusan</th>
+                        <th>Tanggal_Kelas</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -26,6 +29,9 @@
                     <tr>
                         <td>{{ $data->tujuan_surat }}</td>
                         <td>{{ $data->tanggal_mulai }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->jurusan }}</td>
+                        <td>{{ $data->kelas }}</td>
                         <td><span class="badge badge-pill badge-success">Sudah</span></td>
                         <td><button type="button" class="btn mb-2 btn-secondary"><span
                                     class="fe fe-download fe-16"><span></button></td>
