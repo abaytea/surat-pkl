@@ -23,7 +23,8 @@ class SiswaSeeder extends Seeder
         ])->assignRole('siswa')->siswa()->create([
             'nisn' => '123',
             'no_hp' => '089123123',
-            'jurusan' => 'TKJ_B',
+            'kelas_id' => 1,
+            'jurusan_id' => 1
         ]);
     }
 }
