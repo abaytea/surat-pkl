@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Siswa;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SiswaSeeder extends Seeder
 {
@@ -26,5 +27,18 @@ class SiswaSeeder extends Seeder
             'kelas_id' => 1,
             'jurusan_id' => 1
         ]);
+
+        User::factory(10)
+        ->create()
+        ->each(
+            function ($user) {
+                Siswa::factory()->create(
+                    [
+                        'user_id' => $user->id,
+                    ],
+                );
+            }
+        );
+
     }
 }
