@@ -19,6 +19,11 @@ use App\Http\Controllers\SiswaController;
 Route::get('/', function () {
     return view('login');
 })->name("login");
+
+Route::get('/cetak', function () {
+    return view('cetak');
+})->name("cetak");
+
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth']], function () {

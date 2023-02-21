@@ -1,5 +1,7 @@
-<?php
-        echo '
+<html>
+<head>
+    <title>PRINT OUT</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
         <style type="text/css">
             table {
                 background: #fff;
@@ -171,15 +173,6 @@
                     echo '
                 </div>
                 <div class="separator"></div>';
-
-                $id_surat = mysqli_real_escape_string($config, $_REQUEST['id_surat']);
-                $query = mysqli_query($config, "SELECT * FROM tbl_surat_masuk WHERE id_surat='$id_surat'");
-
-                if(mysqli_num_rows($query) > 0){
-                $no = 0;
-                while($row = mysqli_fetch_array($query)){
-
-                echo '
                     <table class="bordered" id="tbl">
                         <tbody>
                             <tr>
@@ -214,13 +207,7 @@
                                 <td id="right"><strong>Tanggal Penyelesaian</strong></td>
                                 <td id="left" colspan="2">: </td>
                             </tr>
-                            <tr>';
-                            $query3 = mysqli_query($config, "SELECT * FROM tbl_disposisi JOIN tbl_surat_masuk ON tbl_disposisi.id_surat = tbl_surat_masuk.id_surat WHERE tbl_disposisi.id_surat='$id_surat'");
-
-                            if(mysqli_num_rows($query3) > 0){
-                                $no = 0;
-                                $row = mysqli_fetch_array($query3);{
-                                echo '
+                            <tr>
                             <tr class="isi">
                                 <td colspan="2">
                                     <strong>Isi Disposisi :</strong><br/>'.$row['isi_disposisi'].'
@@ -231,17 +218,7 @@
                                     <div style="height: 25px;"></div>
                                 </td>
                                 <td><strong>Diteruskan Kepada</strong> : <br/>'.$row['tujuan'].'</td>
-                            </tr>';
-                                }
-                            } else {
-                                echo '
-                                <tr class="isi">
-                                    <td colspan="2"><strong>Isi Disposisi :</strong>
-                                    </td>
-                                    <td><strong>Diteruskan Kepada</strong> : </td>
-                                </tr>';
-                            }
-                        } echo '
+                            </tr>'
                 </tbody>
             </table>
             <div id="lead">
