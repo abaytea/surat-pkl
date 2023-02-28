@@ -171,19 +171,28 @@
 
     </style>
 
-<body onload="window.print()">
+{{-- <body onload="window.print()"> --}}
+<body>
     <div class="halaman1">
         <!-- Container START -->
         <div id="colres">
             <div class="disp">
-                <img class="logodisp" src="{{ asset('logo.png') }}" />';
-                <h6 class="up">YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</h6>
-                <h6 class="up">SMK PASUNDAN JATINAGNOR</h6>
-                <h5 class="status">TERAKREDITASI "A"</h5><br />
-                <h5 class="up" id="nama">NSS : 40.2.02.10.15.027, NPSN : 20254180</h5><br />
-                <h6 class="status">JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB. SUMEDANG</h6>
-                <span id="alamat">e-mail : smkpasundanjatinangor@gmail.com</span> <br>
-                <span id="alamat">website : www.smkpasundanjatinangor.wordpress.com</span>
+                <table>
+                    <tr>
+                        <td>
+                            <img class="logodisp" src="{{ asset('logo.png') }}" />
+                        </td>
+                        <td style="margin: 0">
+                            <p style="font-size: 13px;"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
+                            <p style="font-size: 13px;"><b>SMK PASUNDAN JATINAGNOR</b></p>
+                            <h4>TERAKREDITASI "A"</h4>
+                            <h4>NSS : 40.2.02.10.15.027, NPSN : 20254180</h4>
+                            <span>JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB. SUMEDANG</span> <br>
+                            <span id="alamat">e-mail : smkpasundanjatinangor@gmail.com</span> <br>
+                            <span id="alamat">website : www.smkpasundanjatinangor.wordpress.com</span>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="separator"></div>
             <table>
@@ -203,15 +212,11 @@
                     <td>
                         Ibu/Bapak Pimpinan
                         <br>
-                        …………………………………………………………………. …………………………………………………………………. …………………………………………………………………. ………………………………………………………………….
-                        <br>
-                        …………………………………………………………………. …………………………………………………………………. …………………………………………………………………. ………………………………………………………………….
-                        <br>
-                        …………………………………………………………………. …………………………………………………………………. …………………………………………………………………. ………………………………………………………………….
+                        …………………………………………………………………. …………………………………………………………………. ………………………………………………………………….
                     </td>
                 </tr>
             </table>
-            <p>
+            <p style="font-size: 12px">
                 Dengan hormat.</br>
                 &emsp;&emsp; Dalam rangka melaksanakan program pemerintah tentang link and Match atau
                 Pendidikan Sistem Ganda (PSG) untuk semua Sekolah Menengah Kejuruan (SMK) di
@@ -234,8 +239,7 @@
                 <div style="height: 50px;"></div>
                 <p class="lead">H. Riza Fachri, S.Kom.</p>
             </div>
-        </div></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-        <div class="jarak2"></div>
+        </div>
     </div>
     <div class="page-break"></div>
 
@@ -278,7 +282,8 @@
             <center>
                 <strong>DAFTAR SISWA PRAKERIN</strong><br>
                 <strong>Program Keahlian : .......................</strong>
-            </center></br>
+            </center>
+        </br>
             <table boder="1">
                 <tr>
                     <td>No</td>
@@ -324,16 +329,8 @@
             <div id="lead">
                 </br></br></br></br></br>
                 <p>Kepala Sekolah</p>
-                <div style="height: 50px;"></div>';
-                $query = mysqli_query($config, "SELECT kepsek, nip FROM tbl_instansi");
-                list($kepsek,$nip) = mysqli_fetch_array($query);
-                if(!empty($kepsek)){
-                echo '<p class="lead">'.$kepsek.'</p>';
-                } else {
-                echo '<p class="lead">H. Riza Fachri, S.Kom.</p>';
-
-                }
-                echo '
+                <div style="height: 50px;"></div>
+                <p class="lead">H. Riza Fachri, S.Kom.</p>
             </div>
         </div></br></br></br></br></br></br></br></br></br></br></br></br></br>
         <div class="jarak2"></div>
@@ -386,13 +383,12 @@
             </br></br>
             <center><strong>DAFTAR SISWA PRAKERIN</strong></center></br>
 
-            <table boder="1">
+            <table boder="1px">
                 <tr>
-                    <td>No</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                    </center>
+                    <th>No</th>
+                    <th>No Induk</th>
+                    <th>Nama Siswa</th>
+                    <th>Kelas</th>
                 </tr>
                 <tr>
                     <td>1</td>
@@ -427,10 +423,11 @@
             </table>
 
             <div id="lead">
-                </br></br></br>
-                <p>Kepala Sekolah</p>
-                <div style="height: 50px;"></div>
-            </div>
+            </br></br></br></br></br>
+            <p>Pimpiman Perusahaan</p>
+            <div style="height: 50px;"></div>
+            <p class="lead">(_______________________________________________)</p>
+        </div>
             <div class="jarak2"></div>
             <!-- Container END -->
         </div>
