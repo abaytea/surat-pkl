@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('login');
 })->name("login");
 
-Route::get('/cetak', function () {
-    return view('cetak');
-})->name("cetak");
+Route::get('/cetak/{id}', [SuratController::class, 'cetak']);
 
 Route::post('/login', [AuthController::class, 'login']);
 

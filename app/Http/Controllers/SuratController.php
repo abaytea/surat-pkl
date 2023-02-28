@@ -2,14 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Surat;
 use App\Models\User;
+use App\Models\Surat;
+use App\Models\BridgeSurat;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 class SuratController extends Controller
 {
+    public function cetak($id){
+        $surat = DB::table('surats')
+        ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
+        ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+        ->join('users', 'siswas.user_id','=', 'users.id')
+        ->join('kelas','siswas.kelas_id','=','kelas.id')
+        ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+        ->where('surats.id','=',$id)
+        ->get();
+
+        return view('cetak', ['surat' => $surat]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +30,27 @@ class SuratController extends Controller
      */
     public function index()
     {
-        $surat = surat::all();
+        if (auth()->user()->hasRole(['admin'])) {
+            $surat = DB::table('surats')
+        ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
+        ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+        ->join('users', 'siswas.user_id','=', 'users.id')
+        ->join('kelas','siswas.kelas_id','=','kelas.id')
+        ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+        ->get()
+        ->unique('bridge_surat.surat_id');
+        } else {
+            $surat = DB::table('surats')
+            ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
+            ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+            ->join('users', 'siswas.user_id','=', 'users.id')
+            ->join('kelas','siswas.kelas_id','=','kelas.id')
+            ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+            ->where('users.id','=',auth()->user()->id)
+            ->get();
+        }
+
+
         return view('page.tabelsurat', ['surat'=>$surat]);
     }
 
@@ -32,7 +65,6 @@ class SuratController extends Controller
         ->join('siswas', 'users.id', '=', 'siswas.user_id')
         ->get();
         return view('page.tambahsurat', ['siswa' => $siswa]);
-
     }
 
     /**
@@ -43,11 +75,18 @@ class SuratController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->nama_siswa);
-            Surat::create([
+        DB::transaction(function ($request) {
+            $surat = Surat::create([
                 "tujuan_surat" => $request->tujuan_surat,
                 "tanggal_mulai"=> $request->tanggal_mulai
-             ]);
+            ]);
+            for ($i=0; $i < count($request->nama_siswa); $i++) {
+                $suratBridge = BridgeSurat::create([
+                    "surat_id" => $surat->id,
+                    "siswa_id" => $request->nama_siswa[$i],
+                ]);
+            }
+        });
 
         return redirect()->to('/formtabelsurat');
     }

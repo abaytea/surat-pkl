@@ -8,13 +8,13 @@
         }
 
         body {
-                font-size: 12px;
-                margin-top: 1,55in;
-                margin-bottom: 1,11in;
-                margin-left: 0.5in;
-                margin-right: 0.5in;
-                color: #212121;
-            }
+            font-size: 12px;
+            margin-top: 1, 55in;
+            margin-bottom: 1, 11in;
+            margin-left: 0.5in;
+            margin-right: 0.5in;
+            color: #212121;
+        }
 
         #right {
             border-right: none !important;
@@ -171,8 +171,8 @@
 
     </style>
 
-{{-- <body onload="window.print()"> --}}
-<body>
+<body onload="window.print()">
+    {{-- <body> --}}
     <div class="halaman1">
         <!-- Container START -->
         <div id="colres">
@@ -187,7 +187,8 @@
                             <p style="font-size: 13px;"><b>SMK PASUNDAN JATINAGNOR</b></p>
                             <h4>TERAKREDITASI "A"</h4>
                             <h4>NSS : 40.2.02.10.15.027, NPSN : 20254180</h4>
-                            <span>JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB. SUMEDANG</span> <br>
+                            <span>JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB.
+                                SUMEDANG</span> <br>
                             <span id="alamat">e-mail : smkpasundanjatinangor@gmail.com</span> <br>
                             <span id="alamat">website : www.smkpasundanjatinangor.wordpress.com</span>
                         </td>
@@ -283,47 +284,28 @@
                 <strong>DAFTAR SISWA PRAKERIN</strong><br>
                 <strong>Program Keahlian : .......................</strong>
             </center>
-        </br>
+            </br>
             <table boder="1">
-                <tr>
-                    <td>No</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Nomer Hp</td>
-                    <td>Kelas</td>
-                    </center>
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>No Induk</td>
+                        <td>Nama Siswa</td>
+                        <td>Nomer Hp</td>
+                        <td>Kelas</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($surat as $data)
+                    <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->nisn }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->no_hp }}</td>
+                    <td>{{ $data->deskripsi }}</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>'.$row['no_surat'].'</td>
-                    <td>'.$row['isi'].'</td>
-                    <td>'.$row['nomerhp'].'</td>
-                    <td>'.$row['indeks'].'</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
+                    @endforeach
+                </tbody>
             </table>
 
             <div id="lead">
@@ -383,51 +365,35 @@
             </br></br>
             <center><strong>DAFTAR SISWA PRAKERIN</strong></center></br>
 
-            <table boder="1px">
-                <tr>
-                    <th>No</th>
-                    <th>No Induk</th>
-                    <th>Nama Siswa</th>
-                    <th>Kelas</th>
+            <table boder="1">
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>No Induk</td>
+                        <td>Nama Siswa</td>
+                        <td>Nomer Hp</td>
+                        <td>Kelas</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($surat as $data)
+                    <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $data->nisn }}</td>
+                    <td>{{ $data->nama }}</td>
+                    <td>{{ $data->no_hp }}</td>
+                    <td>{{ $data->deskripsi }}</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>'.$row['no_surat'].'</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>No Induk</td>
-                    <td>Nama Siswa</td>
-                    <td>Kelas</td>
-                </tr>
+                    @endforeach
+                </tbody>
             </table>
 
             <div id="lead">
-            </br></br></br></br></br>
-            <p>Pimpiman Perusahaan</p>
-            <div style="height: 50px;"></div>
-            <p class="lead">(_______________________________________________)</p>
-        </div>
+                </br></br></br></br></br>
+                <p>Pimpiman Perusahaan</p>
+                <div style="height: 50px;"></div>
+                <p class="lead">(_______________________________________________)</p>
+            </div>
             <div class="jarak2"></div>
             <!-- Container END -->
         </div>

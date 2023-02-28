@@ -18,12 +18,12 @@
                         <span class="ml-lg-2">Menu</span>
                     </a>
                 </li>
-                @role('admin')
                 <li class="nav-item">
                     <a class="nav-link" href={{ url('/formtabelsurat') }}>
                         <span class="ml-lg-2">Surat</span>
                     </a>
                 </li>
+                @role('admin')
                 <li class="nav-item">
                     <a class="nav-link" href={{ url('/formdatasiswapkl') }}>
                         <span class="ml-lg-2">Data Siswa </span>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("nisn");
             $table->string("no_hp");
+            $table->string("status")->nullable(true);
             $table->foreignId("user_id")->constrained();
             $table->foreignId("kelas_id")->constrained('kelas','id');
             $table->foreignId("jurusan_id")->constrained('jurusans','id');
