@@ -33,7 +33,7 @@
                 </a>
                 @if(session()->has('loginError'))
                         <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
-                            <span class="fe fe-alert-triangle fe-16 mr-2"></span> 
+                            <span class="fe fe-alert-triangle fe-16 mr-2"></span>
                             {{ session('loginError') }}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
@@ -50,8 +50,8 @@
                     <input type="password" name="password" id="inputPassword" class="form-control form-control-lg"
                         placeholder="Password" required>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Let me in</button>
-                <p class="mt-5 mb-3 text-muted">© 2023</p>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Masuk</button>
+                <p class="mt-5 mb-3 text-muted">©Akbar Ramadan 2023</p>
             </form>
         </div>
     </div>

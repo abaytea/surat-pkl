@@ -18,11 +18,6 @@
                         <span class="ml-lg-2">Menu</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href={{ url('/formtambahsurat') }}>
-                        <span class="ml-lg-2">Pembuatan Surat PKL</span>
-                    </a>
-                </li>
                 @role('admin')
                 <li class="nav-item">
                     <a class="nav-link" href={{ url('/formtabelsurat') }}>
@@ -32,11 +27,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href={{ url('/formdatasiswapkl') }}>
                         <span class="ml-lg-2">Data Siswa </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href={{ url('/tambahsiswapkl') }}>
-                        <span class="ml-lg-2">Tambah Siswa PKL</span>
                     </a>
                 </li>
                 @endrole
@@ -62,7 +52,7 @@
                     </li>
                     <form action="{{url('logout')}}" method="post">
                         @csrf
-                        <button type="submit">Logout</button>
+                        <button class="btn mb-2 btn-dark" type="submit">Logout</button>
                     </form>
                 </ul>
             </li>

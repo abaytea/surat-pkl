@@ -28,9 +28,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('/dashboard', function () {
-        return view('page.dashboard');
-    });
+    Route::get('/dashboard', [AuthController::class, 'dashboard']);
     Route::get('/formtambahsurat', [SuratController::class, 'create']);
     // Route::get('/formprofile', function () {
     //     return view('page.profile');
