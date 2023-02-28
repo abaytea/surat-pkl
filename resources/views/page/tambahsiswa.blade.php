@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12">
-            <h2 class="page-title">Pembuatan Surat PKL</h2>
+            <h2 class="page-title">Penambahan Siswa PKL</h2>
             <p class="text-muted">Penambahan data siswa PKL SMK Pasundan Jatinangor</p>
             <div class="card shadow mb-4">
 

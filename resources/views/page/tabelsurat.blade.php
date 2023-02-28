@@ -5,8 +5,9 @@
 <div class="col-md-12 my-6">
     <div class="card shadow">
         <div class="card-body">
-            <h5 class="card-title">Data Surat </h5>
+            <h4 class="card-title">Data Surat </h4>
             <p class="card-text">Daftar surat siswa yang sudah / belum mengikuti PKL</p>
+            <a href="{{url ('/formtambahsurat')}}" class="btn mb-2 btn-secondary btn-lg">Buat Surat PKL</a>
             <div class="col- md-4">
                 <form class="form-inline mr-auto searchform text-muted">
                     <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
@@ -32,7 +33,7 @@
                         <td>{{ $data->nama }}</td>
                         <td>{{ $data->jurusan }}</td>
                         <td>{{ $data->kelas }}</td>
-                        
+
                         <td><span class="badge badge-pill badge-success">Sudah</span></td>
                         <td><button type="button" class="btn mb-2 btn-secondary"><span
                                     class="fe fe-download fe-16"><span></button></td>
