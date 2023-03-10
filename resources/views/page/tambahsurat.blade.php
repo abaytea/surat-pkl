@@ -8,7 +8,7 @@
             <p class="text-muted">Demo for form control styles, layout options, and custom components for creating a
                 wide variety of forms.</p>
             <div class="card shadow mb-4">
-
+                <hash id="admin">
                 <div class="card-header">
                     <strong class="card-title">Tambah Surat PKL</strong>
                 </div>
@@ -19,7 +19,7 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label for="simpleinput">Tujuan Surat</label>
-                                    <input type="text" name="tujuan_surat" id="simpleinput" class="form-control">
+                                    <input type="text" name="tujuan_surat" id="simpleinput" class="form-control" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <p class="mb-2"><strong>Tanggal Mulai</strong></p>
@@ -27,7 +27,7 @@
                                         <div class="form-group col-md-10">
                                             <div class="input-group">
                                                 <input type="date" name="tanggal_mulai" class="form-control"
-                                                    id="date-input1" aria-describedby="button-addon2">
+                                                    id="date-input1" aria-describedby="button-addon2" required>
                                                 <div class="input-group-append">
                                                     <div class="input-group-text" id="button-addon-date"><span
                                                             class="fe fe-calendar fe-16"></span></div>
@@ -47,12 +47,8 @@
                                             <div class="form-group col-md-2">
                                                 <label for="simple-select2">Jurusan </label>
                                                 <select name="kelas" class="form-control select2" id="simple-select2">
-                                                    <optgroup label="Pilih Kelas">
-                                                        <option value="TKJ_A">TKJ</option>
-                                                        <option value="TKJ_B">TSM</option>
-                                                        <option value="TKJ_C">TKR</option>
-                                                        <option value="TSM_A">AP</option>
-                                                        <option value="TSM_A">AK</option>
+                                                    <optgroup label="Pilih Jurusan">
+                                                        <option value="{{ $atribut->name }}">{{ $atribut->name }}</option>
                                                     </optgroup>
                                                 </select>
                                             </div>
@@ -60,10 +56,7 @@
                                                 <label for="simple-select2">Kelas </label>
                                                 <select name="kelas" class="form-control select2" id="simple-select2">
                                                     <optgroup label="Pilih Kelas">
-                                                        <option value="TKJ_A">A</option>
-                                                        <option value="TKJ_B">B</option>
-                                                        <option value="TKJ_C">C</option>
-                                                        <option value="TSM_A">D</option>
+                                                        <option value="{{ $atribut->kelas }}">{{ $atribut->kelas }}</option>
                                                     </optgroup>
                                                 </select>
                                             </div>

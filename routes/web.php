@@ -21,6 +21,7 @@ Route::get('/', function () {
 })->name("login");
 
 Route::get('/cetak/{id}', [SuratController::class, 'cetak']);
+Route::get('/download/{id}', [SuratController::class, 'download']);
 
 Route::post('/login', [AuthController::class, 'login']);
 

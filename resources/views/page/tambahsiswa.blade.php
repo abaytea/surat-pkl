@@ -25,7 +25,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-10">
                                             <div class="input-group">
-                                                <input type="text" name="username" class="form-control">
+                                                <input type="text" name="nisn" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -35,7 +35,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-10">
                                             <div class="input-group">
-                                                <input type="text" name="username" class="form-control">
+                                                <input type="text" name="no_hp" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +69,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-3">
                                                 <label for="simple-select2">Jurusan </label>
-                                                <select name="kelas" class="form-control select2" id="simple-select2">
+                                                <select name="jurusan" class="form-control select2" id="simple-select2">
                                                     <optgroup label="Pilih Kelas">
                                                         @foreach ($jurusan as $data)
                                                         <option value="{{ $data->id }}">{{ $data->name }}</option>
