@@ -7,7 +7,7 @@
         <div class="card-body">
             <h5 class="card-title">Data Siswa </h5>
             <p class="card-text">Daftar nama siswa yang sudah / belum mengikuti PKL</p>
-            <a href="{{url ('/formtambahsurat')}}" class="btn mb-2 btn-secondary btn-lg">Tambah Data Siswa PKL </a>
+            <a href="{{url ('/tambahsiswapkl')}}" class="btn mb-2 btn-secondary btn-lg">Tambah Data Siswa PKL </a>
             <table class="table table-hover">
                 <thead>
                     <tr>
