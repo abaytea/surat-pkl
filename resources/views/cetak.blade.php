@@ -188,8 +188,8 @@
                             {{-- <img class="logodisp" src="{{ asset('logo.png') }}" /> --}}
                         </td>
                         <td>
-                            <p style="font-size: 13px;" class="mb-0 mt-0"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
-                            <p style="font-size: 13px;" class="mb-0 mt-0"><b>SMK PASUNDAN JATINAGNOR</b></p>
+                            <p style="font-size: 20px;" class="mb-0 mt-0"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
+                            <p style="font-size: 30px;" class="mb-0 mt-0"><b>SMK PASUNDAN JATINAGNOR</b></p>
                             <h4 class="mb-0 mt-0">TERAKREDITASI "A"</h4>
                             <h4 class="mb-0 mt-0">NSS : 40.2.02.10.15.027, NPSN : 20254180</h4>
                             <span>JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB.
@@ -218,10 +218,11 @@
                     <td>
                         Ibu/Bapak Pimpinan
                         <br>
-                        …………………………………………………………………. …………………………………………………………………. ………………………………………………………………….
+                        ………………………………………………………………….<br>
+                        ………………………………………………………………….
                     </td>
                 </tr>
-            </table>
+            </table><br>
             <p style="font-size: 12px">
                 Dengan hormat.</br>
                 &emsp;&emsp; Dalam rangka melaksanakan program pemerintah tentang link and Match atau
@@ -240,10 +241,10 @@
                 permohonan Prakerin kepada Siswa/i kami.Atas perhatian Saudara kami ucapkan terimakasih.
             </p>
             <div id="lead">
-                </br></br></br>
+                </br></br></br><br>
                 <p>Kepala Sekolah</p>
                 <div style="height: 50px;"></div>
-                <p class="lead">H. Riza Fachri, S.Kom.</p>
+                <p class="lead">NUNUNG KURNIA,S.T.,M.Pd</p>
             </div>
         </div>
     </div>
@@ -259,8 +260,8 @@
                             {{-- <img class="logodisp" src="{{ asset('logo.png') }}" /> --}}
                         </td>
                         <td>
-                            <p style="font-size: 13px;" class="mb-0 mt-0"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
-                            <p style="font-size: 13px;" class="mb-0 mt-0"><b>SMK PASUNDAN JATINAGNOR</b></p>
+                            <p style="font-size: 20px;" class="mb-0 mt-0"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
+                            <p style="font-size: 30px;" class="mb-0 mt-0"><b>SMK PASUNDAN JATINAGNOR</b></p>
                             <h4 class="mb-0 mt-0">TERAKREDITASI "A"</h4>
                             <h4 class="mb-0 mt-0">NSS : 40.2.02.10.15.027, NPSN : 20254180</h4>
                             <span>JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB.
@@ -327,7 +328,7 @@
                 </br></br></br></br></br>
                 <p>Kepala Sekolah</p>
                 <div style="height: 50px;"></div>
-                <p class="lead">H. Riza Fachri, S.Kom.</p>
+                <p class="lead">NUNUNG KURNIA,S.T.,M.Pd</p>
             </div>
         </div></br></br></br></br></br></br></br></br></br></br></br></br></br>
         <div class="jarak2"></div>
@@ -345,8 +346,8 @@
                             {{-- <img class="logodisp" src="{{ asset('logo.png') }}" /> --}}
                         </td>
                         <td>
-                            <p style="font-size: 13px;" class="mb-0 mt-0"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
-                            <p style="font-size: 13px;" class="mb-0 mt-0"><b>SMK PASUNDAN JATINAGNOR</b></p>
+                            <p style="font-size: 20px;" class="mb-0 mt-0"><b>YAYASAN PENDIDIKAN DASAR DAN MENENGAH (YPDM) PASUNDAN</b></p>
+                            <p style="font-size: 30px;" class="mb-0 mt-0"><b>SMK PASUNDAN JATINAGNOR</b></p>
                             <h4 class="mb-0 mt-0">TERAKREDITASI "A"</h4>
                             <h4 class="mb-0 mt-0">NSS : 40.2.02.10.15.027, NPSN : 20254180</h4>
                             <span>JALAN KOL. AHMAD SYAM CIKERUH TLP .(022) 77782242 JATINANGOR 45363 KAB.
@@ -371,7 +372,7 @@
                     <center>Yang bertanda tangan dibawah ini, Pimpinan Perusahaan/ Lembaga / Instansi </center>
                 </strong></td>
             <td id="left" colspan="2">
-                <center>'.$row['asal_surat'].'</center>
+                <center>{{$tujuansurat->string("tujuan_surat")}};</center>
             </td>
             </br>
             <td>
@@ -417,7 +418,7 @@
                 </br></br></br></br></br>
                 <p>Pimpiman Perusahaan</p>
                 <div style="height: 50px;"></div>
-                <p class="lead">(_______________________________________________)</p>
+                <p class="lead">_______________________________________________</p>
             </div>
             <div class="jarak2"></div>
             <!-- Container END -->
