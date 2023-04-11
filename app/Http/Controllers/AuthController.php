@@ -40,7 +40,8 @@ public function dashboard () {
     }
     public function store(Request $request)
     {
-            User::create([
+        DB::transaction (function () use ($request){
+            $user = user::create([
                 "nama" => $request->nama,
                 "username"=> $request->username,
                 "password"=> Hash::make ($request->password),
@@ -50,9 +51,11 @@ public function dashboard () {
                 'kelas_id' => $request->kelas,
                 'jurusan_id' => $request->jurusan
             ]);
+        });
             return redirect()->to('/formdatasiswapkl');
             return back()->with('loginError', 'Username atau Password Salah!');
     }
+
     public function profile(){
         // dd(auth()->user()->getRoleNames());
         if (auth()->user()->getRoleNames()[0] == "admin") {

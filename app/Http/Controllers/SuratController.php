@@ -5,13 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Surat;
 use App\Models\BridgeSurat;
+use App\Models\Siswa;
+// use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 
 class SuratController extends Controller
 {
+
     public function cetak($id){
+        $surat = DB::table('surats')
+        ->join('bridge_surats','surats.id', '=','bridge_surats.surat_id')
+        ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+        ->join('users', 'siswas.user_id','=', 'users.id')
+        ->join('kelas','siswas.kelas_id','=','kelas.id')
+        ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+        ->where('surats.id','=',$id)
+        ->get();
+
+        return view('cetak', ['surat' => $surat]);
+    }
+
+    public function download($id){
         $surat = DB::table('surats')
         ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
         ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
@@ -21,7 +40,10 @@ class SuratController extends Controller
         ->where('surats.id','=',$id)
         ->get();
 
-        return view('cetak', ['surat' => $surat]);
+        // return view('cetak', ['surat' => $surat]);
+        $pdf = PDF::loadView('page.cetak', compact('licencie'));
+        return $pdf->download('invoice.pdf');
+
     }
     /**
      * Display a listing of the resource.
@@ -32,21 +54,24 @@ class SuratController extends Controller
     {
         if (auth()->user()->hasRole(['admin'])) {
             $surat = DB::table('surats')
-        ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
-        ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
-        ->join('users', 'siswas.user_id','=', 'users.id')
-        ->join('kelas','siswas.kelas_id','=','kelas.id')
-        ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
-        ->get()
-        ->unique('bridge_surat.surat_id');
+        // ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
+        // ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+        // ->join('users', 'siswas.user_id','=', 'users.id')
+        // ->join('kelas','siswas.kelas_id','=','kelas.id')
+        // ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+        ->get();
+        // dd($surat);
+        // ->unique('surats.id');
         } else {
-            $surat = DB::table('surats')
+            $surat =
+            DB::table('surats')
             ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
             ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
             ->join('users', 'siswas.user_id','=', 'users.id')
             ->join('kelas','siswas.kelas_id','=','kelas.id')
             ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
-            ->where('users.id','=',auth()->user()->id)
+            ->select('surats.id', 'deskripsi', 'tujuan_surat', 'tanggal_mulai', 'nama', 'kelas', 'name')
+            ->where('bridge_surats.siswa_id','=',auth()->user()->id)
             ->get();
         }
 
@@ -61,10 +86,16 @@ class SuratController extends Controller
      */
     public function create()
     {
-        $siswa = DB::table('users')
+        $user = Siswa::where('user_id', '=', auth()->user()->id)->first();
+        // dd($user);
+        $data = DB::table('users')
         ->join('siswas', 'users.id', '=', 'siswas.user_id')
-        ->get();
-        return view('page.tambahsurat', ['siswa' => $siswa]);
+        ->join('jurusans', 'siswas.jurusan_id', '=', 'jurusans.id')
+        ->join('kelas', 'siswas.kelas_id', '=', 'kelas.id');
+        $siswa = $data->where('siswas.jurusan_id', '=', $user->jurusan_id)->where('siswas.kelas_id','=', $user->kelas_id)->get();
+        $atributUser = $data->where('user_id', '=', auth()->user()->id)->first();
+        // $kelas = $data->where('user_id', '=', auth()->user()->id)->first();
+        return view('page.tambahsurat', ['siswa' => $siswa, 'atribut' => $atributUser]);
     }
 
     /**
@@ -75,13 +106,18 @@ class SuratController extends Controller
      */
     public function store(Request $request)
     {
-        DB::transaction(function ($request) {
+        // dd($request->all());
+        DB::transaction(function () use ($request){
             $surat = Surat::create([
                 "tujuan_surat" => $request->tujuan_surat,
                 "tanggal_mulai"=> $request->tanggal_mulai
             ]);
+            BridgeSurat::create([
+                "surat_id" => $surat->id,
+                "siswa_id" => auth()->user()->id,
+            ]);
             for ($i=0; $i < count($request->nama_siswa); $i++) {
-                $suratBridge = BridgeSurat::create([
+                BridgeSurat::create([
                     "surat_id" => $surat->id,
                     "siswa_id" => $request->nama_siswa[$i],
                 ]);

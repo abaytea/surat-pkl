@@ -7,13 +7,10 @@
         <div class="card-body">
             <h4 class="card-title">Data Surat </h4>
             <p class="card-text">Daftar surat siswa yang sudah / belum mengikuti PKL</p>
+            @role('siswa')
             <a href="{{url ('/formtambahsurat')}}" class="btn mb-2 btn-secondary btn-lg">Buat Surat PKL</a>
+            @endrole
             <div class="col- md-4">
-                <form class="form-inline mr-auto searchform text-muted">
-                    <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search"
-                        placeholder="Type something..." aria-label="Search">
-                </form>
-                </br>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -42,9 +39,11 @@
                             @else
                             <td><span class="badge badge-pill badge-success">Sudah</span></td>
                             @endrole
-
                             <td>
-                                <a href="{{ url('/cetak/'. $data->surat_id) }}" class="btn mb-2 btn-secondary">
+                                <a href="{{ url('/cetak/'. $data->id) }}" class="btn mb-2 btn-secondary">
+                                    <span class="fe fe-printer"><span>
+                                </a>
+                                <a href="{{ url('/download/'. $data->id) }}" class="btn mb-2 btn-secondary">
                                     <span class="fe fe-download fe-16"><span>
                                 </a>
                             </td>
