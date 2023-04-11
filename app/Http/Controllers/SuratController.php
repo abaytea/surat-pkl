@@ -6,10 +6,7 @@ use App\Models\User;
 use App\Models\Surat;
 use App\Models\BridgeSurat;
 use App\Models\Siswa;
-// use Barryvdh\DomPDF\PDF;
-use Barryvdh\DomPDF\Facade as PDF;
-
-
+use \PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
@@ -27,7 +24,16 @@ class SuratController extends Controller
         ->where('surats.id','=',$id)
         ->get();
 
-        return view('cetak', ['surat' => $surat]);
+        $tujuansurat = DB::table('surats')
+        ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
+        ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+        ->join('users', 'siswas.user_id','=', 'users.id')
+        ->join('kelas','siswas.kelas_id','=','kelas.id')
+        ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+        ->where('surats.id','=',$id)
+        ->first();
+
+        return view('cetak', ['surat' => $surat, 'tujuansurat' => $tujuansurat]);
     }
 
     public function download($id){
@@ -40,10 +46,21 @@ class SuratController extends Controller
         ->where('surats.id','=',$id)
         ->get();
 
-        // return view('cetak', ['surat' => $surat]);
-        $pdf = PDF::loadView('page.cetak', compact('licencie'));
-        return $pdf->download('invoice.pdf');
+        $tujuansurat = DB::table('surats')
+        ->join('bridge_surats', 'surats.id', '=','bridge_surats.surat_id')
+        ->join('siswas','bridge_surats.siswa_id','=','siswas.id')
+        ->join('users', 'siswas.user_id','=', 'users.id')
+        ->join('kelas','siswas.kelas_id','=','kelas.id')
+        ->join('jurusans','siswas.jurusan_id','=','jurusans.id')
+        ->where('surats.id','=',$id)
+        ->first();
 
+        // dd($tujuansurat);
+
+        // return view('cetak', ['surat' => $surat]);
+        // $pdf = PDF::loadView('cetak', ['surat' => $surat, 'tujuansurat' => $tujuansurat]);
+        // return $pdf->download('surat.pdf');
+        return PDF::loadView('download', ['surat' => $surat, 'tujuansurat' => $tujuansurat])->stream();
     }
     /**
      * Display a listing of the resource.

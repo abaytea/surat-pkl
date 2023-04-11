@@ -43,9 +43,6 @@
                                 <a href="{{ url('/cetak/'. $data->id) }}" class="btn mb-2 btn-secondary">
                                     <span class="fe fe-printer"><span>
                                 </a>
-                                <a href="{{ url('/download/'. $data->id) }}" class="btn mb-2 btn-secondary">
-                                    <span class="fe fe-download fe-16"><span>
-                                </a>
                             </td>
                         </tr>
                         @endforeach
