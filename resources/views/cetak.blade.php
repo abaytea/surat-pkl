@@ -372,7 +372,7 @@
                     <center>Yang bertanda tangan dibawah ini, Pimpinan Perusahaan/ Lembaga / Instansi </center>
                 </strong></td>
             <td id="left" colspan="2">
-                <center>{{$tujuansurat->string("tujuan_surat")}};</center>
+                <center>{{$surat->string("tujuan_surat")}};</center>
             </td>
             </br>
             <td>
