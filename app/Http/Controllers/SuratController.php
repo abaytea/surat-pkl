@@ -87,7 +87,6 @@ class SuratController extends Controller
                 ]);
             }
         });
-
         return redirect()->to('/formtabelsurat');
     }
 
